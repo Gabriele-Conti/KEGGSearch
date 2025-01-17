@@ -24,22 +24,20 @@ devtools::install_github("Gabriele-Conti/KEGGSearch")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
+# import dependances
 library(KEGGPackage)
 library(dplyr)
-#> 
-#> Caricamento pacchetto: 'dplyr'
-#> I seguenti oggetti sono mascherati da 'package:stats':
-#> 
-#>     filter, lag
-#> I seguenti oggetti sono mascherati da 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(tibble)
+
 ## basic example code
 entry <- c("map01100", "map01110", "map01120")
-KEGGList(entry, "pathway")
+result <- KEGGList(entry = entry, database = "pathway")
+
 #> [1] "Selected param: pathway"
 #> Querying: https://rest.kegg.jp/list/pathway
+
+print(result)
+
 #>         V1                                           V2
 #> 1 map01100                           Metabolic pathways
 #> 2 map01110        Biosynthesis of secondary metabolites

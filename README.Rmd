@@ -34,11 +34,14 @@ devtools::install_github("Gabriele-Conti/KEGGSearch")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
+# import dependances
 library(KEGGPackage)
 library(dplyr)
 library(tibble)
+
 ## basic example code
 entry <- c("map01100", "map01110", "map01120")
-KEGGList(entry, "pathway")
+result <- KEGGList(entry = entry, database = "pathway")
+print(result)
 
 ```
