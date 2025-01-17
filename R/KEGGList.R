@@ -2,6 +2,7 @@
 #'
 #' Retrieve KEGG pathway names for a specific organism.
 #' @param entry A KEGG code string (e.g., entry <- c("map01100", "map01110", "map01120")).
+#' @param database Define selected KEGG database to query.
 #' @return A data frame with IDs and names.
 #' @export
 KEGGList <- function(entry, database) {
