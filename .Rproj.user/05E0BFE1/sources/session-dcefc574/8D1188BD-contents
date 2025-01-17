@@ -1,0 +1,115 @@
+library(dplyr)
+library(tibble)
+
+test_param <- function(param, allowed_params) {
+  # Ensure both inputs are valid
+  if (!is.character(param) || length(param) != 1) {
+    message(paste(param, "must be a single string.\nAllowed params are:", paste(allowed_params, collapse = ", ")))
+    return(1)
+  }
+  # Check if the input is valid
+  if (!param %in% allowed_params) {
+    message(paste("Invalid param:", param,
+                  "\nAllowed params are:", paste(allowed_params, collapse = ", ")))
+    return(2)
+  }
+  # If valid, proceed with the function logic
+  print(paste("Selected param:", param))
+  return(0)
+}
+
+KEGGList <- function(entry, database){
+  # Ensure required libraries are available
+  if (!requireNamespace("dplyr", quietly = TRUE)) stop("Package 'dplyr' is required.")
+  if (!requireNamespace("tibble", quietly = TRUE)) stop("Package 'tibble' is required.")
+
+  # Check the validity of the database
+  allowed_db <- c("pathway" , "brite" , "module" , "ko" , "vg" , "vp" , "ag" , "genome" , "compound" ,
+                  "glycan" , "reaction" , "rclass" , "enzyme" , "network" , "variant" , "disease" , "drug" ,
+                  "dgroup" , "organism")
+  db_val <- test_param(database, allowed_db)
+  if (db_val != 0) {
+    if(db_val == 2) {
+      message("Retriving provided organism ID ...")
+      allowed_org <- read.table("https://rest.kegg.jp/list/organism", header = FALSE, sep = "\t", quote = "", stringsAsFactors = FALSE, fill = TRUE)$V2
+      if (!database %in% allowed_org) {
+        message("Exiting `KEGGList` function due to invalid database or organism ID")
+        return(NULL)
+      }
+    } else {
+      message("Exiting `KEGGList` function due to invalid database")
+      return(NULL)  # Exit the function
+    }
+  }
+  link <- paste0("https://rest.kegg.jp/list/", database)
+  message(paste("querying", link, "..."))
+  data_table <- read.table(link, header = FALSE, sep = "\t", quote = "", stringsAsFactors = FALSE, fill = TRUE)
+  matches_table <- data_table %>% filter(V1 %in% entry)
+  if (nrow(matches_table) == 0){
+    message("Check the `entry` format according to the queried database:")
+    print(link)
+    return(NULL)
+  }
+  return(matches_table)
+}
+
+entry <- c("mmur:105884056", "mmur:105872674")
+KEGGList(entry, "mmur")
+
+
+
+
+
+
+
+
+KEGGList
+
+
+nrow(matches_table)
+
+
+entry <- c("105884056", "105872674")
+entry <- c("mmur:105884056", "mmur:105872674")
+paste(test , collapse = "|")
+
+which(apply(data_table, 1, function(row) any(grepl(paste(test , collapse = "|"), row))))
+
+link <- "https://rest.kegg.jp/list/mmur"
+
+allowed_operations <- c("info", "list", "find", "get", "conv", "link", "ddi")
+# Check the validity of the operation
+if (test_param(operation, allowed_operations) != 0) {
+  message("Exiting `KEGGList` function due to invalid operation.")
+  return(NULL)  # Exit the function
+}
+
+ptr
+
+
+test_param("culo", c("info", "list", "find", "get", "conv", "link", "ddi"))
+
+test_param <- function(param, allowed_params) {
+  # Ensure both inputs are valid
+  if (!is.character(param) || length(param) != 1) {
+    message(paste(param, "must be a single string.\nAllowed params are:", paste(allowed_params, collapse = ", ")))
+    return(1)
+  }
+  # Check if the input is valid
+  if (!param %in% allowed_params) {
+    message(paste("Invalid param:", param,
+               "\nAllowed params are:", paste(allowed_params, collapse = ", ")))
+    return(2)
+  }
+  # If valid, proceed with the function logic
+  print(paste("Selected param:", param))
+  return(0)
+}
+
+
+test("info")
+test(operation = "Culo")
+
+
+KEGGList("pathway")
+KEGGList("mmur")
