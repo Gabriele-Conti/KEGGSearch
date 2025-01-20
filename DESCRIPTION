@@ -1,10 +1,10 @@
 Package: KEGGPackage
 Title: KEGG database Tools
-Version: 0.0.0.9000
+Version: 0.0.1.000
 Authors@R: 
     person("Gabriele", "Conti", , "conti.gabriele@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4623-043X"))
-Description: Usefull function to query the KEGG databses using KEGG API
+Description: Useful function to query the KEGG databses using KEGG API
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
