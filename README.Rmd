@@ -13,21 +13,32 @@ knitr::opts_chunk$set(
 )
 ```
 
-# KEGGPackage
+# KEGGSearch: Comprehensive KEGG Data Retrieval Using Multiple Sources
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of KEGGPackage is to provide useful function to quering the KEGG databases using KEGG API
+## Description
+
+The KEGGSearch package provides an extensive toolkit for retrieving KEGG (Kyoto Encyclopedia of Genes and Genomes) information from multiple sources, enabling flexible and comprehensive access to biological pathway and module data. It includes functions to query KEGG IDs via the official KEGG REST API and alternative sources such as Bio2RDF, as well as a manually curated dataset for enhanced coverage of KEGG modules. The package facilitates efficient data extraction and integration for bioinformatics analysis.
+
+## Key Functions
+
+*   *KEGGList()* – Retrieves KEGG entity names (pathways, compounds, etc.) using the official KEGG REST API.
+*   *GETKEGGNames()* – Fetches KEGG entity names via the Bio2RDF API as an alternative data source.
+*   *GETKEGG_Module()* – Combines Bio2RDF data with a manually curated KEGG module table to enhance data availability.
+
+This package is useful for researchers and bioinformaticians needing reliable and extensive access to KEGG resources for biological analysis and pathway enrichment studies.
 
 ## Installation
 
-You can install the development version of KEGGPackage from [GitHub](https://github.com/) with:
+You can install the development version of KEGGSearch from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("Gabriele-Conti/KEGGSearch")
 ```
+Depends: dplyr, tibble, httr, jsonlite
 
 ## Example
 
@@ -57,3 +68,21 @@ result <- GETKEGG_Module(modules_IDs)
 print(result)
 
 ```
+
+## Citation
+
+If you use this R package please cite this GitHub in your article:
+
+```
+@Manual{,
+  title = {KEGGSearch: Comprehensive KEGG Data Retrieval Using Multiple Sources},
+  author = {Gabriele Conti},
+  year = {2025},
+  note = {R package version 0.0.1},
+  url = {https://github.com/Gabriele-Conti/KEGGSearch.git},
+}
+``` 
+
+**Example** 
+<br>
+Conti, G. (2025) KEGGSearch: Comprehensive KEGG Data Retrieval Using Multiple Sources (v0.0.1). Available on Github: https://github.com/Gabriele-Conti/KEGGSearch<br/>

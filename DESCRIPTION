@@ -1,10 +1,10 @@
-Package: KEGGPackage
-Title: KEGG database Tools
-Version: 0.0.1.000
+Package: KEGGSearch
+Title: KEGGSearch: Comprehensive KEGG Data Retrieval Using Multiple Sources
+Version: 0.1.1.000
 Authors@R: 
     person("Gabriele", "Conti", , "conti.gabriele@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4623-043X"))
-Description: Useful function to query the KEGG databses using KEGG API
+Description: The KEGGSearch package provides an extensive toolkit for retrieving KEGG (Kyoto Encyclopedia of Genes and Genomes) information from multiple sources, enabling flexible and comprehensive access to biological pathway and module data. It includes functions to query KEGG IDs via the official KEGG REST API and alternative sources such as Bio2RDF, as well as a manually curated dataset for enhanced coverage of KEGG modules. The package facilitates efficient data extraction and integration for bioinformatics analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
