@@ -46,9 +46,14 @@ entry <- c("map01100", "map01110", "map01120")
 result <- KEGGList(entry = entry, database = "pathway")
 print(result)
 
-## KEGGList basic example code
+## GETKEGGNames basic example code
 KEGG_IDs <- c("map01100", "map01110", "map01120")
 result <- GETKEGGNames(KEGG_IDs)
+print(result)
+
+## KEGGList basic example code
+modules_IDs <- c("M00005", "M00045", "M00060")
+result <- GETKEGG_Module(modules_IDs)
 print(result)
 
 ```

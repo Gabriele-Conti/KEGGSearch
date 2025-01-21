@@ -26,6 +26,12 @@ GETKEGGNames <- function(KEGG_IDs){
       # Parse the JSON content
       parsed_content <- jsonlite::fromJSON(content_text)
 
+      # Check if the JSON object is empty
+      if (length(parsed_content) == 0) {
+        message(paste("No data found for:", entry))
+        next  # Skip to the next iteration without breaking the loop
+      }
+
       # Extract specific information
       retrived_name <- parsed_content[[link]][["http://www.w3.org/2000/01/rdf-schema#label"]][["value"]]
 
